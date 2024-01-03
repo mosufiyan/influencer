@@ -8,12 +8,13 @@ import { LeadPageRoutingModule } from './lead-routing.module';
 
 import { LeadPage } from './lead.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LeadPageRoutingModule
+    LeadPageRoutingModule,
   ],
   declarations: [LeadPage]
 })

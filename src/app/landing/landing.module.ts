@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -16,6 +16,7 @@ import { SlidesComponent } from './slides/slides.component';
     IonicModule,
     LandingPageRoutingModule
   ],
-  declarations: [LandingPage,SlidesComponent]
+  declarations: [LandingPage,SlidesComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LandingPageModule {}

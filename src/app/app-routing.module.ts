@@ -5,7 +5,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'slides',
+    redirectTo: 'landing',
     pathMatch: 'full'
   },
   {

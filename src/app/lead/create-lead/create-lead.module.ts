@@ -8,13 +8,17 @@ import { CreateLeadPageRoutingModule } from './create-lead-routing.module';
 
 import { CreateLeadPage } from './create-lead.page';
 import { LocateLeadComponent } from '../locate-lead/locate-lead.component';
-
+import { GoogleMapsModule } from '@angular/google-maps';
+import { GooglePlaceModule } from '../../shared/google-places/ngx-google-places-autocomplete';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CreateLeadPageRoutingModule
+    CreateLeadPageRoutingModule,
+    GoogleMapsModule,
+    GooglePlaceModule,
+
   ],
   declarations: [CreateLeadPage,LocateLeadComponent]
 })

@@ -6,13 +6,19 @@ import { Router } from '@angular/router';
   templateUrl: './slides.component.html',
   styleUrls: ['./slides.component.scss'],
 })
-export class SlidesComponent  implements OnInit {
+export class SlidesComponent implements OnInit {
+
+  slides: any[] = [
+    { id: 1, image: '../../../assets/influencer-img/slide1.svg', label: 'Get Yourself Registered' },
+    { id: 2, image: '../../../assets/influencer-img/slide1.svg', label: 'Create Leads' },
+    { id: 3, image: '../../../assets/influencer-img/slide1.svg', label: 'Earn With Us' }
+  ];
 
   constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  getStarted(){
+  getStarted() {
     this.router.navigate(['/auth/sign-up']);
   }
 }

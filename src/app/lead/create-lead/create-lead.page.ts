@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Loader, LoaderOptions } from 'google-maps';
 import { ModalController } from '@ionic/angular';
 import { LocateLeadComponent } from '../locate-lead/locate-lead.component';
+import { LeadServiceService } from '../lead-service.service';
 
 @Component({
   selector: 'fundflo-create-lead',
@@ -9,24 +9,23 @@ import { LocateLeadComponent } from '../locate-lead/locate-lead.component';
   styleUrls: ['./create-lead.page.scss'],
 })
 export class CreateLeadPage implements OnInit {
+  position = { lat: 21.089270, lng: 79.089928 };
 
-  constructor(private modalController: ModalController) { }
+  constructor(
+    private leadService: LeadServiceService,
+    private modalController: ModalController) { }
 
   async ngOnInit() {
-    const options: LoaderOptions = {/* todo */ };
-    const loader = new Loader('AIzaSyD9kLGVnuDzaiB1Y1WxHFyFjYVagSu7RnY', options);
-    const google = await loader.load();
-    const mapdiv: any = document.getElementById('map');
-    const map = new google.maps.Map(mapdiv, {
-      center: { lat: -34.397, lng: 150.644 },
-      zoom: 8,
-    });
-    setTimeout(() => {
-      mapdiv.style = 'none'
-    }, 1000)
+    this.leadService.current_address
+      .subscribe((response: any) => {
+        if (response) {
+          this.position = response
+        }
+        else {
+          this.position = { lat: 21.089270, lng: 79.089928 };
+        }
+      });
     this.locateLead();
-    console.log(map, map);
-
   }
 
   async locateLead() {

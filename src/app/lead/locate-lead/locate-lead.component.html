@@ -1,25 +1,42 @@
 <ion-content class="ion-padding main">
-
   <ion-list>
     <ion-item>
       <ion-label>
-        <h2>Locate your lead in the map <span class="f-right" (click)="onClose()">
-            <img src="../../../assets/influencer-img/close.svg"></span>
+        <h2>
+          Locate your lead in the map
+          <span class="f-right" (click)="onClose()">
+            <img src="../../../assets/influencer-img/close.svg"
+          /></span>
         </h2>
         <p>Or enter the lead location below</p>
       </ion-label>
     </ion-item>
     <div class="form-group">
-      <input type="text" class="form-control" id="entcode" required>
+      <input
+      placeholder="Location"
+        ngx-google-places-autocomplete
+        #places="ngx-places"
+        type="text"
+        class="form-control"
+        id="entcode"
+        (onAddressChange)="address($event)"
+      />
       <label class="label" for="usr">Location</label>
     </div>
 
     <div class="f-right d-flex">
       <div class="mb-3">
         <button type="button" class="btn blue">Save & Exit</button>
-      </div> &nbsp;
+      </div>
+      &nbsp;
       <div class="mb-3">
-        <button type="button" class="btn blue"> Next <img src="../../../assets/influencer-img/navigate_next.svg" alt="icon"> </button>
+        <button type="button" class="btn blue">
+          Next
+          <img
+            src="../../../assets/influencer-img/navigate_next.svg"
+            alt="icon"
+          />
+        </button>
       </div>
     </div>
   </ion-list>
